@@ -21,13 +21,7 @@ const config: Config = {
       },
 
       fontSize: {
-        sm: '14px',
-        base: '16px',
-        xl: '20px',
-        '2xl': '24px',
-        '3xl': '32px',
-        '4xl': '40px',
-        '5xl': '56px',
+        '5xl': '3.5rem',
       },
 
       lineHeight: {
@@ -52,9 +46,11 @@ const config: Config = {
 
         bw: {
           100: 'var(--gray-10)',
+          200: 'var(--gray-20)',
           300: 'var(--gray-30)',
           600: 'var(--gray-60)',
           700: 'var(--gray-70)',
+          800: 'var(--gray-80)',
           900: 'var(--gray-100)',
         },
       },
