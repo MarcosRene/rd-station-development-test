@@ -1,0 +1,35 @@
+/* Body */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+
+/* Heading */
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@800;900&family=Nunito+Sans:opsz@6..12&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --primary-shade-1: #100c27;
+  --primary-shade-3: #4839a3;
+  --primary-shade-4: #6c5ae0;
+
+  --hightlight: #f2bf4e;
+  --hightlight-50: #f4ca6d;
+
+  --gray-100: #212429;
+  --gray-70: #7e8a98;
+  --gray-60: #97a1ac;
+  --gray-30: ##cfd3d8;
+  --gray-10: ##f1f3f5;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-400 text-white font-body bg-gradient-to-r from-brand-300 antialiased;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
