@@ -20,8 +20,8 @@
   --gray-100: #212429;
   --gray-70: #7e8a98;
   --gray-60: #97a1ac;
-  --gray-30: ##cfd3d8;
-  --gray-10: ##f1f3f5;
+  --gray-30: #cfd3d8;
+  --gray-10: #f1f3f5;
 }
 
 @layer base {
@@ -31,5 +31,14 @@
 
   button {
     @apply cursor-pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
   }
 }
