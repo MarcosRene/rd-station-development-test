@@ -20,7 +20,7 @@ interface GetProductData {
   email: string
 }
 
-export async function getCard(id: string): Promise<GetProductData> {
+async function getCard(id: string): Promise<GetProductData> {
   const response = await fetch(`http://localhost:3333/cards/${id}`)
   return response.json()
 }
