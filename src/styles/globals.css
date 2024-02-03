@@ -14,6 +14,7 @@
   --primary-shade-1: #100c27;
   --primary-shade-3: #4839a3;
   --primary-shade-4: #6c5ae0;
+  --primary-shade-8: #d8d9fd;
 
   --hightlight: #f2bf4e;
   --hightlight-50: #f4ca6d;
@@ -48,7 +49,7 @@
 
 @layer components {
   .button {
-    @apply relative w-full py-3 bg-highlight-0 border border-brand-900 flex items-center justify-center gap-2 transition-colors hover:bg-highlight-50 disabled:bg-bw-200 disabled:text-bw-600 disabled:cursor-not-allowed;
+    @apply relative w-full py-3 text-base font-extrabold leading-[24px] tracking-[0.2px] uppercase text-bw-900 bg-highlight-0 border border-brand-900 flex items-center justify-center gap-2 transition-colors hover:bg-highlight-50 disabled:bg-bw-200 disabled:text-bw-600 disabled:cursor-not-allowed disabled:border-none;
   }
 }
 
