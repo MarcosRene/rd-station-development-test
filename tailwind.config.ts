@@ -18,6 +18,7 @@ const config: Config = {
       fontFamily: {
         body: '"Nunito Sans", sans-serif',
         heading: '"Darker Grotesque", sans-serif',
+        title: '"Red Hat Display", sans-serif',
       },
 
       fontSize: {
@@ -36,6 +37,7 @@ const config: Config = {
         brand: {
           300: 'var(--primary-shade-3)',
           400: 'var(--primary-shade-4)',
+          800: 'var(--primary-shade-8)',
           900: 'var(--primary-shade-1)',
         },
 
@@ -53,6 +55,31 @@ const config: Config = {
           800: 'var(--gray-80)',
           900: 'var(--gray-100)',
         },
+      },
+
+      boxShadow: {
+        md: '0px 8px 18px 0px rgba(33, 36, 41, 0.16)',
+      },
+
+      keyframes: {
+        'slider-top-to-bottom': {
+          '0%': { transform: 'translateY(-100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0px)', opacity: '1' },
+        },
+        'slider-right-to-left': {
+          '0%': { transform: 'translateX(100px)', opacity: '0' },
+          '100%': { transform: 'translateX(0px)', opacity: '1' },
+        },
+        'slider-left-to-right': {
+          '0%': { transform: 'translateX(-100px)', opacity: '0' },
+          '100%': { transform: 'translateX(0px)', opacity: '1' },
+        },
+      },
+
+      animation: {
+        'slider-top-to-bottom': 'slider-top-to-bottom 1s ease-in-out',
+        'slider-right-to-left': 'slider-right-to-left 1s ease-in-out',
+        'slider-left-to-right': 'slider-left-to-right 1s ease-in-out',
       },
     },
   },
