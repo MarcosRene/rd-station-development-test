@@ -29,13 +29,13 @@ export default async function Details({ params }: GetDetailsParams) {
 
   return (
     <section className="flex flex-col">
-      <div className="sm:flex items-center justify-between sm:gap">
+      <div className="flex flex-col items-center justify-between lg:flex-row md:gap-12">
         <Image
           src="/assets/landingpage.svg"
           alt="Homem em pé com fones de ouvido pintando a parede de amarela"
-          width={455}
+          width={400}
           height={335}
-          className="hidden md:block animate-slider-left-to-right"
+          className="hidden xl:w-[455px] xl:h-[335px] md:block animate-slider-left-to-right"
         />
 
         <div className="flex flex-col gap-6 animate-slider-right-to-left">
@@ -50,7 +50,7 @@ export default async function Details({ params }: GetDetailsParams) {
             Gerar outro cartão
           </Link>
 
-          <div className="py-8 px-9 bg-white rounded-3xl flex items-center shadow-md sm:w-[510px] sm:h-[247px] sm:px-[72px]">
+          <div className="py-8 px-9 bg-white rounded-3xl flex items-center shadow-md sm:w-[470px] xl:w-[540px] sm:h-[247px] sm:px-[68px] lg:px-[72px]">
             <Image
               src="/assets/symbol-rd-station-default.svg"
               alt="Quatro retângulos 3D, nas cores roxa e preto."

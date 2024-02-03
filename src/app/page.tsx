@@ -60,14 +60,16 @@ export default function Form() {
     event.preventDefault()
 
     try {
+      const formData = {
+        id: Math.floor(Math.random() * 1000000),
+        name,
+        phone,
+        email,
+      }
+
       const response = await fetch('http://localhost:3333/cards', {
         method: 'POST',
-        body: JSON.stringify({
-          id: Math.floor(Math.random() * 10),
-          name,
-          phone,
-          email,
-        }),
+        body: JSON.stringify(formData),
         headers: {
           'Content-type': 'application/json',
         },
@@ -104,7 +106,7 @@ export default function Form() {
           alt="Homem em pé com fones de ouvido pintando a parede de amarela"
           width={268}
           height={198}
-          className="sm:w-[471px] sm:h-[374px] animate-slider-left-to-right"
+          className="md:w-[400px] md:h-[374px] xl:w-[471px] animate-slider-left-to-right"
         />
 
         <form
@@ -121,26 +123,28 @@ export default function Form() {
             />
           </Field>
 
-          <Field label="Telefone*">
-            <Input
-              id="Telefone*"
-              placeholder="(88) 0 0000-0000"
-              value={phone}
-              onChange={handlePhoneChange}
-              maxLength={15}
-              required
-            />
-          </Field>
+          <div className="flex flex-col md:flex-row md:gap-6 lg:gap-10">
+            <Field label="Telefone*">
+              <Input
+                id="Telefone*"
+                placeholder="(88) 0 0000-0000"
+                value={phone}
+                onChange={handlePhoneChange}
+                maxLength={15}
+                required
+              />
+            </Field>
 
-          <Field label="Email*" error={getErrorMessageByFieldName('email')}>
-            <Input
-              id="Email*"
-              placeholder="nome@email.com"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-          </Field>
+            <Field label="Email*" error={getErrorMessageByFieldName('email')}>
+              <Input
+                id="Email*"
+                placeholder="nome@email.com"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </Field>
+          </div>
 
           <div className="mb-8 text-xs leading-[18px]">
             <ul className="mb-6 ml-6 list-disc">
