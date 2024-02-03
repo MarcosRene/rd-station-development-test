@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     template: '%s | Gerador de Cartão de Visita',
     default: 'Gerador de Cartão de Visita',
   },
+  description:
+    'Um simples gerador de cartão de visitas. Construido com Nextjs + Tailwindcss',
 }
 
 export default function RootLayout({

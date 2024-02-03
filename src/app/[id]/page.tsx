@@ -1,8 +1,13 @@
 import React from 'react'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { Button } from '@/components/Button'
+
+export const metadata: Metadata = {
+  title: 'Cartão',
+}
 
 interface GetDetailsParams {
   params: { id: string }
