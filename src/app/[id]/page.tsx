@@ -4,20 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { Button } from '@/components/Button'
+import { GetDetailsParams, GetProductData } from '../types'
 
 export const metadata: Metadata = {
   title: 'Cartão',
-}
-
-interface GetDetailsParams {
-  params: { id: string }
-}
-
-interface GetProductData {
-  id: number
-  name: string
-  phone: string
-  email: string
 }
 
 async function getCard(id: string): Promise<GetProductData> {

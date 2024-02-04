@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "api-cards": "json-server --watch api-cards.json --port 3333 --deplay 2000"
+    "server": "json-server --watch api-cards.json --port 3333 --deplay 2000"
   },
   "dependencies": {
     "next": "14.1.0",

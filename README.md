@@ -80,6 +80,7 @@ Ferramentas utilizadas na contrução do projeto:
 - **[Nextjs](https://nextjs.org/)**
 - **[TailwindCSS](https://tailwindcss.com/)**
 - **[TypeScript](https://www.typescriptlang.org/)**
+- **[Yup](https://www.npmjs.com/package/yup)**
 - **[JsonServer](https://www.npmjs.com/package/json-server)**
 
 #### 🧭 Rodando a aplicação

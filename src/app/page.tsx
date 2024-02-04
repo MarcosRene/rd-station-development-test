@@ -37,7 +37,7 @@ export default function Form() {
 
   const [formData, setFormData] = useState<FormData>(initialFormState)
   const [errors, setErrors] = useState<ErrorHandlers>({})
-  const [isFormValid, setIsFormValid] = useState(false)
+  const [isInvalidFormData, setIsInvalidFormData] = useState(false)
 
   function handleFormDataChange(event: ChangeEvent<HTMLInputElement>) {
     const { value, name } = event.target
@@ -74,9 +74,9 @@ export default function Form() {
 
       clearFields()
     } catch (validationErrors) {
+      setIsInvalidFormData(validationErrors?.inner?.length > 0)
       const newErrors = getValidationErrors(validationErrors)
       setErrors(newErrors)
-      setIsFormValid(validationErrors?.inner?.length > 0)
     }
   }
 
@@ -102,75 +102,75 @@ export default function Form() {
           className="md:w-[400px] md:h-[374px] xl:w-[471px] animate-slider-left-to-right"
         />
 
-        <form
-          className={`w-full sm:w-[620px] animate-slider-right-to-left ${
-            isFormValid && 'animate-shake'
-          }`}
-          onSubmit={handleSubmit}
-        >
-          <Field label="Nome*" error={errors?.name}>
-            <Input
-              id="Nome*"
-              name="name"
-              placeholder="Nome"
-              value={formData.name}
-              onChange={handleFormDataChange}
-              data-error={errors?.name}
-            />
-          </Field>
-
-          <div className="flex flex-col md:flex-row md:gap-6 lg:gap-10">
-            <Field label="Telefone*" error={errors?.phone}>
+        <div className="w-full sm:w-[620px] animate-slider-right-to-left">
+          <form
+            className={`w-full ${isInvalidFormData && 'animate-shake'}`}
+            onSubmit={handleSubmit}
+          >
+            <Field label="Nome*" error={errors?.name}>
               <Input
-                id="Telefone*"
-                name="phone"
-                placeholder="(88) 0 0000-0000"
-                value={formData.phone}
+                id="Nome*"
+                name="name"
+                placeholder="Nome"
+                value={formData.name}
                 onChange={handleFormDataChange}
-                maxLength={15}
-                data-error={errors?.phone}
+                data-error={errors?.name}
               />
             </Field>
 
-            <Field label="Email*" error={errors?.email}>
-              <Input
-                id="Email*"
-                name="email"
-                placeholder="nome@email.com"
-                value={formData.email}
-                onChange={handleFormDataChange}
-                data-error={errors?.email}
-              />
-            </Field>
-          </div>
+            <div className="flex flex-col md:flex-row md:gap-6 lg:gap-10">
+              <Field label="Telefone*" error={errors?.phone}>
+                <Input
+                  id="Telefone*"
+                  name="phone"
+                  placeholder="(88) 0 0000-0000"
+                  value={formData.phone}
+                  onChange={handleFormDataChange}
+                  maxLength={15}
+                  data-error={errors?.phone}
+                />
+              </Field>
 
-          <div className="mb-8 text-xs leading-[18px]">
-            <ul className="mb-6 ml-6 list-disc">
-              <li>
-                Ao preencher o formulário, concordo * em receber comunicações de
-                acordo com meus interesses.
-              </li>
-              <li>
-                Ao informar meus dados, eu concordo com a{' '}
-                <a
-                  href="https://legal.rdstation.com/pt/privacy-policy/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline"
-                >
-                  Política de privacidade.
-                </a>
-              </li>
-            </ul>
+              <Field label="Email*" error={errors?.email}>
+                <Input
+                  id="Email*"
+                  name="email"
+                  placeholder="nome@email.com"
+                  value={formData.email}
+                  onChange={handleFormDataChange}
+                  data-error={errors?.email}
+                />
+              </Field>
+            </div>
 
-            <span>
-              * Você pode alterar suas permissões de comunicação a qualquer
-              tempo.
-            </span>
-          </div>
+            <div className="mb-8 text-xs leading-[18px]">
+              <ul className="mb-6 ml-6 list-disc">
+                <li>
+                  Ao preencher o formulário, concordo * em receber comunicações
+                  de acordo com meus interesses.
+                </li>
+                <li>
+                  Ao informar meus dados, eu concordo com a{' '}
+                  <a
+                    href="https://legal.rdstation.com/pt/privacy-policy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    Política de privacidade.
+                  </a>
+                </li>
+              </ul>
 
-          <Button type="submit">Gerar Cartão Grátis</Button>
-        </form>
+              <span>
+                * Você pode alterar suas permissões de comunicação a qualquer
+                tempo.
+              </span>
+            </div>
+
+            <Button type="submit">Gerar Cartão Grátis</Button>
+          </form>
+        </div>
       </div>
     </>
   )
