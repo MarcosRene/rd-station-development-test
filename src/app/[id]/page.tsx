@@ -66,16 +66,14 @@ export default async function Details({ params }: GetDetailsParams) {
 
             <div className="w-full flex flex-col gap-6 relative before:absolute before:-top-2 before:-left-5 before:bg-brand-800 before:w-[3px] before:h-[calc(100%+16px)]">
               <span
-                className="text-black text-sm sm:text-xl leading-[30px] line-clamp-1"
+                className="text-black text-sm sm:text-xl line-clamp-1"
                 title={name}
               >
                 {name}
               </span>
-              <span className="text-black text-sm sm:text-xl leading-[30px]">
-                {phone}
-              </span>
+              <span className="text-black text-sm sm:text-xl">{phone}</span>
               <span
-                className="text-black text-sm sm:text-xl leading-[30px] line-clamp-1"
+                className="text-black text-sm sm:text-xl line-clamp-1"
                 title={name}
               >
                 {email}

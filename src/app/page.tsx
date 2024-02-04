@@ -88,13 +88,13 @@ export default function Form() {
   }
 
   return (
-    <section className="flex flex-col">
+    <>
       <div className="mb-11 flex flex-col items-center gap-4 sm:mb-0 animate-slider-top-to-bottom">
         <h1 className="font-title font-bold text-2xl text-center sm:text-3xl lg:text-[40px] sm:leading-[50px]">
           Gerador de Cartão de Visita
         </h1>
 
-        <span className="block text-base leading-[24px] text-center sm:text-xl sm:w-[600px]">
+        <span className="block w-[314px] text-base leading-[24px] text-center sm:text-xl sm:w-[600px]">
           Crie grátis seu cartão de visita em passos rápidos! Você o insere no
           Instagram e demais canais digitais.
         </span>
@@ -174,6 +174,6 @@ export default function Form() {
           <Button type="submit">Gerar Cartão Grátis</Button>
         </form>
       </div>
-    </section>
+    </>
   )
 }

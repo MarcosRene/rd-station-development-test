@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col min-h-screen">
         <header className="p-6 bg-white flex items-center justify-between sm:py-6 sm:px-20">
           <Image
             src="/assets/logo-rd-station-default.svg"
@@ -33,7 +33,7 @@ export default function RootLayout({
             Gerador de Cartão de Visita
           </h4>
         </header>
-        <main className="container h-full py-[54px] px-6 sm:py-[72px] sm:px-20">
+        <main className="container flex-grow  py-[54px] px-6 sm:py-[72px] sm:px-20 lg:flex flex-col justify-center">
           {children}
         </main>
         <footer className="px-5 py-4 bg-bw-100 flex justify-center gap-3 sm:py-6 sm:px-20 sm:gap-4">
