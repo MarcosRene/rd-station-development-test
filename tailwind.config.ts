@@ -78,12 +78,20 @@ const config: Config = {
           '0%': { transform: 'translateX(-100px)', opacity: '0' },
           '100%': { transform: 'translateX(0px)', opacity: '1' },
         },
+        shake: {
+          '0%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-5px) rotate(0.5deg)' },
+          '50%': { transform: 'translateX(5px) rotate(-0.5deg)' },
+          '75%': { transform: 'translateX(-5px) rotate(0.5deg)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
 
       animation: {
         'slider-top-to-bottom': 'slider-top-to-bottom 1s ease-in-out',
         'slider-right-to-left': 'slider-right-to-left 1s ease-in-out',
         'slider-left-to-right': 'slider-left-to-right 1s ease-in-out',
+        shake: 'shake 180ms ease-in-out',
       },
     },
   },

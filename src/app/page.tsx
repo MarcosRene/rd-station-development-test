@@ -3,69 +3,60 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-
-import { useErrors } from '@/hooks/useErrors'
+import * as yup from 'yup'
 
 import { Button } from '@/components/Button'
 import { Input } from '@/components/Input'
 import { Field } from '@/components/Field'
 
 import formatPhone from '@/utils/formatPhone'
-import isEmailValid from '@/utils/isValidEmail'
+import { getValidationErrors } from '@/utils/getValidationErrors'
+
+import { FormData, ErrorHandlers } from './types'
+
+const schemaFormData = yup.object().shape({
+  name: yup
+    .string()
+    .min(2, 'O nome deve ter no mínimo dois caracteres.')
+    .required('O nome é obrigatório.'),
+  phone: yup.string().required('O telefone é obrigatório.'),
+  email: yup
+    .string()
+    .email('O é email inválido.')
+    .required('O email é obrigatório.'),
+})
+
+const initialFormState: FormData = {
+  name: '',
+  phone: '',
+  email: '',
+}
 
 export default function Form() {
   const router = useRouter()
-  const { setError, removeError, getErrorMessageByFieldName } = useErrors()
 
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [email, setEmail] = useState('')
+  const [formData, setFormData] = useState<FormData>(initialFormState)
+  const [errors, setErrors] = useState<ErrorHandlers>({})
+  const [isFormValid, setIsFormValid] = useState(false)
 
-  function handleNameChange(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value
+  function handleFormDataChange(event: ChangeEvent<HTMLInputElement>) {
+    const { value, name } = event.target
 
-    setName(value)
-
-    if (value.length <= 2) {
-      setError({
-        field: 'name',
-        message: 'O nome precisa ter no mínino dois caracteres.',
-      })
-    } else {
-      removeError('name')
-    }
+    setFormData((prevFormDataState) => ({
+      ...prevFormDataState,
+      [name]: name === 'phone' ? formatPhone(value) : value,
+    }))
   }
 
-  function handlePhoneChange(event: ChangeEvent<HTMLInputElement>) {
-    setPhone(formatPhone(event.target.value))
-  }
-
-  function handleEmailChange(event: ChangeEvent<HTMLInputElement>) {
-    setEmail(event.target.value)
-
-    if (event.target.value && !isEmailValid(event.target.value)) {
-      setError({ field: 'email', message: 'O email é inválido.' })
-    } else {
-      removeError('email')
-    }
-  }
-
-  function clearFilters() {
-    setName('')
-    setPhone('')
-    setEmail('')
+  function clearFields() {
+    setFormData(initialFormState)
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     try {
-      const formData = {
-        id: Math.floor(Math.random() * 1000000),
-        name,
-        phone,
-        email,
-      }
+      schemaFormData.validateSync(formData, { abortEarly: false })
 
       const response = await fetch('http://localhost:3333/cards', {
         method: 'POST',
@@ -81,9 +72,11 @@ export default function Form() {
         router.push(`/${data.id}`)
       }
 
-      clearFilters()
-    } catch (error) {
-      console.error(error)
+      clearFields()
+    } catch (validationErrors) {
+      const newErrors = getValidationErrors(validationErrors)
+      setErrors(newErrors)
+      setIsFormValid(validationErrors?.inner?.length > 0)
     }
   }
 
@@ -110,38 +103,43 @@ export default function Form() {
         />
 
         <form
-          className="w-full sm:w-[620px] animate-slider-right-to-left"
+          className={`w-full sm:w-[620px] animate-slider-right-to-left ${
+            isFormValid && 'animate-shake'
+          }`}
           onSubmit={handleSubmit}
         >
-          <Field label="Nome*" error={getErrorMessageByFieldName('name')}>
+          <Field label="Nome*" error={errors?.name}>
             <Input
               id="Nome*"
+              name="name"
               placeholder="Nome"
-              value={name}
-              onChange={handleNameChange}
-              required
+              value={formData.name}
+              onChange={handleFormDataChange}
+              data-error={errors?.name}
             />
           </Field>
 
           <div className="flex flex-col md:flex-row md:gap-6 lg:gap-10">
-            <Field label="Telefone*">
+            <Field label="Telefone*" error={errors?.phone}>
               <Input
                 id="Telefone*"
+                name="phone"
                 placeholder="(88) 0 0000-0000"
-                value={phone}
-                onChange={handlePhoneChange}
+                value={formData.phone}
+                onChange={handleFormDataChange}
                 maxLength={15}
-                required
+                data-error={errors?.phone}
               />
             </Field>
 
-            <Field label="Email*" error={getErrorMessageByFieldName('email')}>
+            <Field label="Email*" error={errors?.email}>
               <Input
                 id="Email*"
+                name="email"
                 placeholder="nome@email.com"
-                value={email}
-                onChange={handleEmailChange}
-                required
+                value={formData.email}
+                onChange={handleFormDataChange}
+                data-error={errors?.email}
               />
             </Field>
           </div>
