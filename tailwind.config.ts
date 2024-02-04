@@ -61,6 +61,10 @@ const config: Config = {
         md: '0px 8px 18px 0px rgba(33, 36, 41, 0.16)',
       },
 
+      screens: {
+        xs: '375px',
+      },
+
       keyframes: {
         'slider-top-to-bottom': {
           '0%': { transform: 'translateY(-100px)', opacity: '0' },

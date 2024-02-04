@@ -12,7 +12,7 @@ export function Field({ label, error, children }: FieldProps) {
       {!!error && (
         <p
           className="mt-2 text-sm font-medium text-highlight-50"
-          aria-labelledby={`${error}-error`}
+          aria-labelledby="error"
         >
           {error}
         </p>

@@ -37,11 +37,11 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="px-5 py-4 bg-bw-100 flex justify-center gap-3 sm:py-6 sm:px-20 sm:gap-4">
-          <span className="underline text-sm font-bold text-bw-900">
+          <span className="underline text-xs xs:text-sm font-bold text-bw-900">
             Política de Privacidade
           </span>
 
-          <span className="text-bw-900 text-sm">
+          <span className="text-bw-900 text-xs xs:text-sm">
             © 2023 Resultados Digitais
           </span>
         </footer>

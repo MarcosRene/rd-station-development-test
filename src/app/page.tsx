@@ -29,7 +29,7 @@ export default function Form() {
     if (value.length <= 2) {
       setError({
         field: 'name',
-        message: 'O nome precisa ter no mínino dois caracteres!',
+        message: 'O nome precisa ter no mínino dois caracteres.',
       })
     } else {
       removeError('name')
@@ -90,7 +90,7 @@ export default function Form() {
   return (
     <>
       <div className="mb-11 flex flex-col items-center gap-4 sm:mb-0 animate-slider-top-to-bottom">
-        <h1 className="font-title font-bold text-2xl text-center sm:text-3xl lg:text-[40px] sm:leading-[50px]">
+        <h1 className="font-title font-bold text-xl text-center xs:text-2xl md:text-3xl md:leading-[50px] lg:text-[40px]">
           Gerador de Cartão de Visita
         </h1>
 
@@ -113,7 +113,7 @@ export default function Form() {
           className="w-full sm:w-[620px] animate-slider-right-to-left"
           onSubmit={handleSubmit}
         >
-          <Field label="Nome*" error={getErrorMessageByFieldName('email')}>
+          <Field label="Nome*" error={getErrorMessageByFieldName('name')}>
             <Input
               id="Nome*"
               placeholder="Nome"
