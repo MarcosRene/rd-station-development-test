@@ -26,7 +26,7 @@
 
 <p>
    <img
-    src=".github/bg-cover.png"
+    src=".github/screen.gif"
     alt="Gerador de cartão de visita"
     title="Gerador de cartão de visita"
   />
