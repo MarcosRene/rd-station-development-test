@@ -33,7 +33,7 @@ export default async function Details({ params }: GetDetailsParams) {
           className="hidden xl:w-[455px] xl:h-[335px] md:block animate-slider-left-to-right"
         />
 
-        <div className="flex flex-col gap-6 animate-slider-right-to-left">
+        <div className="w-full flex flex-col gap-6 animate-slider-right-to-left sm:w-auto">
           <Link href="/" className="text-sm flex items-center gap-1 sm:text-xl">
             <Image
               src="/icons/chevron-left.svg"
