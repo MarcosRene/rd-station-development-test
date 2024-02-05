@@ -99,7 +99,7 @@ $ pnpm install
 $ pnpm dev
 
 # A aplicação inciará na porta 3000
-# Passo 5: Em seguida abra um novo terminal e execute o seguite comando.
+# Passo 5: Em seguida abra um novo terminal e execute o seguite comando (na pasta do projeto).
 $ pnpm run server
 
 # ANesse servidor serão salvas as informações. Consistem em um aquivo `api-cards.json` na raiz do projeto.
