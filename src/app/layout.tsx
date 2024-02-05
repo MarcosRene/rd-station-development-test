@@ -20,18 +20,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <header className="p-6 bg-white flex items-center justify-between sm:py-6 sm:px-20">
-          <Image
-            src="/assets/logo-rd-station-default.svg"
-            alt="Quatro retângulos 3D cor preta e roxa; Seguido de um texto: Resultados digitais em caixa alta e cor preta"
-            width={100}
-            height={24}
-            className="sm:w-[147px] sm:h-[36px]"
-          />
+        <header className="py-6 bg-white">
+          <div className="px-6 container flex items-center justify-between md:px-20">
+            <Image
+              src="/assets/logo-rd-station-default.svg"
+              alt="Quatro retângulos 3D cor preta e roxa; Seguido de um texto: Resultados digitais em caixa alta e cor preta"
+              width={100}
+              height={24}
+              className="sm:w-[147px] sm:h-[36px]"
+            />
 
-          <h4 className="text-bw-900 text-lg leading-tight font-bold md:text-2xl">
-            Gerador de Cartão de Visita
-          </h4>
+            <h4 className="text-bw-900 text-lg leading-tight font-bold md:text-2xl">
+              Gerador de Cartão de Visita
+            </h4>
+          </div>
         </header>
         <main className="container flex-grow  py-[54px] px-6 sm:py-[72px] sm:px-20 lg:flex flex-col justify-center">
           {children}

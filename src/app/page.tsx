@@ -50,6 +50,7 @@ export default function Form() {
 
   function clearFields() {
     setFormData(initialFormState)
+    setErrors({})
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -74,6 +75,7 @@ export default function Form() {
 
       clearFields()
     } catch (validationErrors) {
+      // @ts-ignore
       setIsInvalidFormData(validationErrors?.inner?.length > 0)
       const newErrors = getValidationErrors(validationErrors)
       setErrors(newErrors)
