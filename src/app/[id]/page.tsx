@@ -1,5 +1,5 @@
 import React from 'react'
-import { Metadata } from 'next'
+import next, { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -11,7 +11,12 @@ export const metadata: Metadata = {
 }
 
 async function getCard(id: string): Promise<GetProductData> {
-  const response = await fetch(`http://localhost:3333/cards/${id}`)
+  const response = await fetch(`http://localhost:3333/cards/${id}`, {
+    next: {
+      revalidate: 30 * 30,
+    },
+  })
+
   return response.json()
 }
 
