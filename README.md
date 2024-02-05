@@ -86,20 +86,20 @@ Ferramentas utilizadas na contrução do projeto:
 #### 🧭 Rodando a aplicação
 
 ```bash
-# Faça donwload da aplicação
+# Passo 1: Faça donwload da aplicação
 $ git clone git@github.com:MarcosRene/rd-station-development-test.git
 
-# Vá para a pasta da aplicação `rd-station-development-test`
+# Passo 2: Vá para a pasta da aplicação `rd-station-development-test`
 $ cd rd-station-development-test
 
-# Instale as dependências
+# Passos 3: Instale as dependências
 $ pnpm install
 
-# Execute a aplicação em modo de desenvolvimento
+# Passo 4: Execute a aplicação em modo de desenvolvimento
 $ pnpm dev
 
 # A aplicação inciará na porta 3000
-# Em seguida abra um novo terminal e execute o seguite comando.
+# Passo 5: Em seguida abra um novo terminal e execute o seguite comando.
 $ pnpm run server
 
 # ANesse servidor serão salvas as informações. Consistem em um aquivo `api-cards.json` na raiz do projeto.
